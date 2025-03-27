@@ -1,1 +1,1 @@
-console.log("Quezaada é gayyyyy")
+console.log("Hello World")
