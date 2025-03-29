@@ -26,11 +26,11 @@
         <p>
             Nota Final <input type="text" id="notaFinal" placeholder="Digite a nota final">
         </p>
+        <button id="buttonCadastrar">Cadastrar</button>
     </div>
 
-    <button id="buttonCadastrar">Cadastrar</button>
-
-    <p class="tabela_alunos">
+    <h2>Lista de Alunos</h2>
+    <p>
         <table border="1">
             <thead>
                 <tr>
@@ -46,6 +46,15 @@
         </table>
     </p>
 
+    <h2>Relatórios</h2>
+    <button id="buttonRelatorios">Gerar Relatórios</button>
+    <ul>
+        <li><strong>Alunos Aprovados: </strong><span id="relatorioAprovados"></span></li>
+        <li><strong>Média das Notas: </strong><span id="mediaNotas"></span></li>
+        <li><strong>Média das Idades: </strong><span id="mediaIdades"></span></li>
+        <li><strong>Nomes em ordem Alfabética: </strong><span id="nomesOrdenados"></span></li>
+        <li><strong>Quantidade de Alunos por curso: <br></strong><span id="quantidadeCursos"></span></li>
+    </ul>
     
     <script src="./main.js"></script>
 </body>

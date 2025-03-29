@@ -94,4 +94,29 @@ let limparForm = function() {
     document.getElementById('notaFinal').value = '';
 }
 
+const gerarRelatorios = () => {
+
+    //Alunos aprovados
+    document.getElementById('relatorioAprovados').innerHTML = alunos.filter(aluno => aluno.isAprovado()).map(aluno => aluno.nome).join(', ');
+
+    //Media notas
+    document.getElementById('mediaNotas').innerText = (alunos.reduce((sum, aluno) => sum + aluno.notaFinal, 0) / alunos.length).toFixed(2);
+
+    //Media Idades
+    document.getElementById('mediaIdades').innerText = (alunos.reduce((sum, aluno) => sum + parseInt(aluno.idade), 0) / alunos.length).toFixed(2);
+
+    //Nomes ordenados
+    document.getElementById('nomesOrdenados').innerText = alunos.map(aluno => aluno.nome).sort().join(', ');
+    
+    //qtd Por curso
+    let cursos = alunos.reduce((curso, aluno) =>{
+        curso[aluno.curso] = (curso[aluno.curso] || 0) + 1;
+        return curso;
+    }, {});
+
+    let cursosTexto = Object.entries(cursos).map(([curso, quantidade]) => `${curso}: ${quantidade} alunos`).join(' | ');
+    document.getElementById('quantidadeCursos').innerText = cursosTexto;
+};
+
 document.getElementById('buttonCadastrar').addEventListener('click', cadastrarAluno);
+document.getElementById('buttonRelatorios').addEventListener('click', gerarRelatorios);
