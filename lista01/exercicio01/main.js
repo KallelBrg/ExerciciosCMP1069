@@ -11,6 +11,12 @@ function cadastrarAluno() {
         return;
     }
     
+    if(notaFinal < 0 || notaFinal > 10)
+    {
+        alert('Insira um valor de 0 a 10 para a Nota Final');
+        return;
+    }
+    
     let aluno = {
         nome: nome,
         idade: idade,
