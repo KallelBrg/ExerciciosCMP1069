@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro e Listagem de Funcionários</h1>
+    <hr>
+
+    <div>
+        <p>
+            <strong>Nome </strong><input type="text" id="nome" placeholder="Insira seu nome">
+        </p>
+        <p>
+            <strong>Idade </strong><input type="number" id="idade" placeholder="Insira sua idade">
+        </p>
+        <p>
+            <strong>Cargo </strong><input type="text" id="cargo" placeholder="Insira o seu cargo">
+        </p>
+        <p>
+            <strong>Salário </strong><input type="number" id="salario" placeholder="R$ 0,00">
+        </p>
+        <button id="buttonCadastrar"> Cadastrar </button>
+    </div>
+
+    <br>
+
+    <h2>Tabela de Funcionários</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+            </tr>
+        </thead>
+        <tbody id="corpoTabela">
+
+        </tbody>
+    </table>
+
+    <div>
+        <h3>Relatórios</h3>
+        <button id="buttonRelatorios">Gerar Relatórios</button>
+        <ul>
+            <li><strong>Funcionários com salários acima de R$ 5000: </strong><span id="salario5000"></span></li>
+            <li><strong>Média salarial dos funcionários: </strong><span id="mediaSalarial"></span></li>
+            <li><strong>Listar Cargos </strong><span id="listarCargos"></span></li>
+            <li><strong>Lista de funcinários nome em maiúsculo: </strong><span id="listaMaiusculo"></span></li>
+        </ul>
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
