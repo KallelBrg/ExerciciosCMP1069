@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.full-screen-container {
+    height: 100vh; 
+}
+
+.full-screen-text {
+    font-size: 3rem; 
+    font-weight: bold; 
+    text-align: center;
+}
+
+.full-screen-image {
+    width: 100%; 
+    max-width: 900px;
+    border-radius: 20px; 
+}
