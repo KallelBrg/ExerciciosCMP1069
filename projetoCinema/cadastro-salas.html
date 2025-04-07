@@ -6,38 +6,68 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <title>Document</title>
 </head>
-<body class="bg-dark">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <ul class="nav nav-underline">
-                    <li class="nav-item">
-                      <a class="nav-link text-white fw-semibold" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white fw-semibold" href="./cadastro-filmes.html">Cadastro de Filmes</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active text-white" aria-current="page" href="./cadastro-salas.html">Cadastro de Salas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white fw-semibold" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white fw-semibold" href="./venda-ingressos.html">Venda de Ingressos</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-white fw-semibold" href="./sessoes.html">Listagem de Sessões Disponíveis</a>
-                    </li>
-                  </ul>
-            </div>
-            <div class="col-1 text-end">
-                <a href="./index.html">
-                    <img src="./assets/logoCinemaBranco.png" alt="logoCinema" width="40">
-                </a>
-            </div>
-        </div>
-    </div>
+<body class="bg-dark text-white">
+  <ul class="nav nav-underline justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="./index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="./cadastro-filmes.html">Cadastro de Filmes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white active" href="./cadastro-salas.html">Cadastro de Salas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="./venda-ingressos.html">Venda de Ingressos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="./sessoes.html">Listagem de Sessões Disponíveis</a>
+    </li>
+    <li class="nav-item">
+      <a href="./index.html">
+        <img src="./assets/logoCinemaBranco.png" alt="logoCinema" width="40">
+      </a>
+    </li>
+  </ul>
+
+  <div class="container mt-5">
+    <h2 class="text-center">Cadastro de Salas 🎬</h2>
+
+    <form>
+      <!--Nome da Sala-->
+      <div class="mb-3">
+        <label class="form-label">Nome da Sala</label>
+        <input type="text" class="form-control" id="nomeSala" placeholder="Digite qual a sala de escolha" required>
+      </div>
+
+      <!--Capacidade-->
+      <div class="mb-3">
+        <label class="form-label">Capacidade</label>
+        <input type="number" class="form-control" id="capacidade" placeholder="Digite a capacidade da sala" required>
+      </div>
+
+      <!--Tipo-->
+      <div class="mb-3">
+        <label class="form-label">Tipo</label>
+        <select id="tipo" class="form-select">
+          <option value="" selected disabled>Selecione o tipo</option>
+          <option>2D</option>
+          <option>3D</option>
+          <option>IMAX</option>
+        </select>
+      </div>
+
+      <!--Botão salvar-->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary w-50">Salvar Sala</button>
+      </div>
+
+    </form>
+
+  </div>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
