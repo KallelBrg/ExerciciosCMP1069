@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
   <div class="container-fluid bg-dark">
     <ul class="nav nav-underline justify-content-center bg-dark">
       <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./home.html">Home</a>
+        <a class="nav-link active text-white" aria-current="page" href="./home.html">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white fw-semibold" href="./cadastro-filmes.html">Cadastro de Filmes</a>
@@ -19,7 +20,7 @@
         <a class="nav-link text-white fw-semibold" href="./cadastro-salas.html">Cadastro de Salas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white active" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
+        <a class="nav-link text-white fw-semibold" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white fw-semibold" href="./venda-ingressos.html">Venda de Ingressos</a>
@@ -36,6 +37,20 @@
 
   </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <div class="container d-flex align-items-center justify-content-center full-screen-container">
+      <div class="row text-center">
+          <div class="col-12">
+              <h1 class="full-screen-text mb-3">Felicidade em cada cena, emoção em cada sessão! <br>🍿🎥🎬</h1>
+          </div>
+          <div class="col-12">
+              <a>
+                  <img src="./assets/cinemaHome.png" alt="imgCinema" class="full-screen-image">
+              </a>
+          </div>
+      </div>
+  </div>
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
