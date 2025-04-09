@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <title>Document</title>
 </head>
+
 <body>
   <div class="container-fluid bg-dark">
     <ul class="nav nav-underline justify-content-center">
@@ -41,7 +43,7 @@
     <hr>
     <div class="row">
       <div class="col-12 col-sm-6 col-lg-4">
-        <button id="btnNovo" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#idModalFilme" >
+        <button id="btnAdicionarFilme" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#idModalFilme">
           Adicionar Filme
         </button>
       </div>
@@ -49,12 +51,12 @@
     <!-- fim row -->
     <br>
     <div class="row">
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Digite o título do filme">
-            <button type="button" class="btn btn-primary">Buscar</button>
-          </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Digite o título do filme">
+          <button type="button" class="btn btn-primary">Buscar</button>
         </div>
+      </div>
     </div>
     <!-- fim row -->
     <hr>
@@ -90,7 +92,7 @@
     </div>
     <!-- fim row -->
 
-     <!-- Modal: Cadastro de Novo Filme ou Editar Filme Existente -->
+    <!-- Modal: Cadastro de Novo Filme ou Editar Filme Existente -->
     <div class="modal fade" id="idModalFilme" tabindex="-1" aria-labelledby="idModalFilmeTitulo" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -100,59 +102,63 @@
               aria-label="Fechar"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="formFilme">
               <div class="mb-3">
-                  <label class="form-label fw-semibold">Título do Filme</label>
-                  <input type="text" class="form-control" id="titulo" placeholder="Digite o título do filme" required>
+                <label class="form-label fw-semibold">Título do Filme</label>
+                <input type="text" class="form-control" id="titulo-filme" placeholder="Digite o título do filme"
+                  required>
               </div>
-    
+
+              <!-- Descrição -->
               <div class="mb-3">
-                  <label class="form-label fw-semibold">Descrição</label>
-                  <textarea class="form-control" id="descricao" rows="3" placeholder="Digite a sinopse do filme"></textarea>
+                <label class="form-label fw-semibold">Descrição</label>
+                <textarea class="form-control" id="descricao-filme" rows="3" placeholder="Digite a sinopse do filme"
+                  required></textarea>
               </div>
-    
+
               <div class="mb-3">
-                  <label class="form-label fw-semibold">Gênero</label>
-                  <select class="form-select" id="genero">
-                      <option value="" selected disabled>Selecione o gênero</option>
-                      <option>Ação</option>
-                      <option>Comédia</option>
-                      <option>Drama</option>
-                      <option>Ficção Científica</option>
-                      <option>Romance</option>
-                      <option>Terror</option>
-                      <option>Outro</option>
-                  </select>
+                <label class="form-label fw-semibold">Gênero</label>
+                <select class="form-select" id="genero-filme" required>
+                  <option value="" selected disabled>Selecione o gênero</option>
+                  <option>Ação</option>
+                  <option>Comédia</option>
+                  <option>Drama</option>
+                  <option>Ficção Científica</option>
+                  <option>Romance</option>
+                  <option>Terror</option>
+                  <option>Outro</option>
+                </select>
               </div>
-    
+
               <div class="mb-3">
-                  <label class="form-label fw-semibold">Classificação Indicativa</label>
-                  <select class="form-select" id="classificacao">
-                      <option value="" selected disabled>Selecione a classificação</option>
-                      <option>Livre</option>
-                      <option>10 anos</option>
-                      <option>12 anos</option>
-                      <option>14 anos</option>
-                      <option>16 anos</option>
-                      <option>18 anos</option>
-                  </select>
+                <label class="form-label fw-semibold">Classificação Indicativa</label>
+                <select class="form-select" id="classificacao-filme" required>
+                  <option value="" selected disabled>Selecione a classificação</option>
+                  <option>Livre</option>
+                  <option>10 anos</option>
+                  <option>12 anos</option>
+                  <option>14 anos</option>
+                  <option>16 anos</option>
+                  <option>18 anos</option>
+                </select>
               </div>
-    
+
               <div class="mb-3">
-                  <label class="form-label fw-semibold">Duração (minutos)</label>
-                  <input type="number" class="form-control" id="duracao" placeholder="Digite a duração do filme" min="1" required>
+                <label class="form-label fw-semibold">Duração (minutos)</label>
+                <input type="number" class="form-control" id="duracao-filme" placeholder="Digite a duração do filme"
+                  min="1" required>
               </div>
-    
+
               <div class="mb-3">
-                  <label class="form-label fw-semibold">Data de Estreia</label>
-                  <input type="date" class="form-control" id="estreia" required>
+                <label class="form-label fw-semibold">Data de Estreia</label>
+                <input type="date" class="form-control" id="estreia-filme" required>
               </div>
-          </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-success" id="btnSalvarFilme">Salvar</button>
+            <button type="submit" class="btn btn-success" id="btnSalvarFilme">Salvar</button>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -163,10 +169,11 @@
 
 
     <!--Fim do container-->
-  </div>  
-  
+  </div>
 
-  <script src="./js/bootstrap.bundle.min.js"></script>
+
   <script type="module" src="./controller/filmeController.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

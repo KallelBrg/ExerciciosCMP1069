@@ -1,53 +1,53 @@
-export class Filme{
-    constructor(id,titulo,genero,classificacao,duaracao,dataEstreia){
+export class Filme {
+    constructor(id, titulo, genero, classificacao, duracao, estreia) {
         this.id = id;;
         this.titulo = titulo;
         this.genero = genero;
         this.classificacao = classificacao;
-        this.duaracao = duaracao;
-        this.dataEstreia = dataEstreia;
+        this.duracao = duracao;
+        this.estreia = estreia;
     }
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //GET E SET
-    getId(){
+    getId() {
         return this.id;
     }
-    setId(id){
+    setId(id) {
         this.id = id;
     }
-    getTitulo(){
+    getTitulo() {
         return this.titulo;
     }
-    setTitulo(titulo){
+    setTitulo(titulo) {
         this.titulo = titulo;
     }
-    getGenero(){
+    getGenero() {
         return this.genero;
     }
-    setGenero(genero){
+    setGenero(genero) {
         this.genero = genero;
     }
-    getClassificacao(){
+    getClassificacao() {
         return this.classificacao;
     }
-    setClassificacao(classificacao){
+    setClassificacao(classificacao) {
         this.classificacao = classificacao;
     }
-    getDuracao(){
-        return this.duaracao;
+    getDuracao() {
+        return this.duracao;
     }
-    setDuracao(duracao){
-        this.duaracao = duracao;
+    setDuracao(duracao) {
+        this.duracao = duracao;
     }
-    getDataEstreia(){
-        return this.dataEstreia;
+    getDataEstreia() {
+        return this.estreia;
     }
-    setDataEstreia(dataEstreia){
-        this.dataEstreia = dataEstreia;
+    setDataEstreia(estreia) {
+        this.estreia = estreia;
     }
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // toString
-    toString(){
-        return console.log(`{ ${this.id}, ${this.titulo}, ${this.genero}, ${this.classificacao}, ${this.duaracao}, ${this.dataEstreia},`)
+    toString() {
+        return console.log(`{ ${this.id}, ${this.titulo}, ${this.genero}, ${this.classificacao}, ${this.duracao}, ${this.estreia},`)
     }
 }
