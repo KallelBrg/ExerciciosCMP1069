@@ -1,77 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
 </head>
-<body>
-  <div class="container-fluid bg-dark">
-    <ul class="nav nav-underline justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./home.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-filmes.html">Cadastro de Filmes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white active" href="./cadastro-salas.html">Cadastro de Salas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./venda-ingressos.html">Venda de Ingressos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./sessoes.html">Listagem de Sessões Disponíveis</a>
-      </li>
-      <li class="nav-item">
-        <a href="./home.html">
-          <img src="./assets/logoCinemaBranco.png" alt="logoCinema" width="40">
-        </a>
-      </li>
-    </ul>
 
+<body class="bg-black text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="./home.html">
+        <img src="./assets/cineBraga.png" alt="CineBraga" class="logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-filmes.html">Cadastro de Filmes</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./cadastro-salas.html">Cadastro de Salas</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-sessoes.html">Cadastro de Sessões</a></li>
+          <li class="nav-item"><a class="nav-link" href="./venda-ingressos.html">Venda de Ingressos</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sessoes.html">Sessões Disponíveis</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <br>
+    <h2>Salas</h2>
+    <hr>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-lg-4">
+        <button id="btnAdicionarSala" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#idModalSalas">
+          Cadastrar Sala
+        </button>
+      </div>
+    </div>
+    <!-- fim row -->
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome da Sala</th>
+              <th>Capacidade</th>
+              <th>Tipo</th>
+              <th>Editar / Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+        <!-- fim table -->
+      </div>
+    </div>
+    <!-- fim row -->
+
+    <!-- Modal: Cadastro de Nova Sala -->
+    <div class="modal fade" id="idModalSalas" tabindex="-1" aria-labelledby="idModalSalasTitulo" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-dark">
+            <h5 class="modal-title" id="idModalSalasTitulo">Cadastrar Nova Sala</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formSalas">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Nome da Sala</label>
+                <input type="text" class="form-control" id="nome-sala" placeholder="Digite o nome da Sala" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Capacidade</label>
+                <input type="number" class="form-control" id="capacidade-sala" placeholder="Digite a capacidade da sala"
+                  required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Tipo</label>
+                <select class="form-select" id="tipo-sala" required>
+                  <option value="" selected disabled>Selecione o Tipo</option>
+                  <option>2D</option>
+                  <option>3D</option>
+                  <option>IMAX</option>
+                </select>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+              id="btnCancelarNovaSala">Cancelar</button>
+            <button type="submit" class="btn btn-success" id="btnSalvarSala">Salvar</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Edição de Sala -->
+    <div class="modal fade" id="idModalEdicaoSala" tabindex="-1" aria-labelledby="idModalSalaEdicao" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-dark">
+            <h5 class="modal-title" id="idModalSalaEdicao">Editar Sala</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formSalas">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Nome da Sala</label>
+                <input type="text" class="form-control" id="nome-sala-edicao" placeholder="Digite o nome da Sala"
+                  required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Capacidade</label>
+                <input type="number" class="form-control" id="capacidade-sala-edicao"
+                  placeholder="Digite a capacidade da sala" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Tipo</label>
+                <select class="form-select" id="tipo-sala-edicao" required>
+                  <option value="" selected disabled>Selecione o Tipo</option>
+                  <option>2D</option>
+                  <option>3D</option>
+                  <option>IMAX</option>
+                </select>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success" id="btnSalvarEdicaoSala">Salvar</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Excluir Filme -->
+    <div class="modal fade" id="modalExcluirSala" tabindex="-1" aria-labelledby="modalExcluirSala" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark">
+            <img src="./img/aviso.png" alt="" class="img-fluid">
+            &nbsp;&nbsp;&nbsp;
+            <h4 class="modal-title text-white"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;Alerta</h4>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body text-black">
+            <h5>Deseja realmente excluir a sala?</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="btnExcluirSala" data-bs-dismiss="modal">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--Fim do container-->
   </div>
 
-  <div class="container mt-5">
-    <h2 class="text-center">Cadastro de Salas 🎬</h2>
-
-    <form>
-      <!--Nome da Sala-->
-      <div class="mb-3">
-        <label class="form-label">Nome da Sala</label>
-        <input type="text" class="form-control" id="nomeSala" placeholder="Digite qual a sala de escolha" required>
-      </div>
-
-      <!--Capacidade-->
-      <div class="mb-3">
-        <label class="form-label">Capacidade</label>
-        <input type="number" class="form-control" id="capacidade" placeholder="Digite a capacidade da sala" required>
-      </div>
-
-      <!--Tipo-->
-      <div class="mb-3">
-        <label class="form-label">Tipo</label>
-        <select id="tipo" class="form-select">
-          <option value="" selected disabled>Selecione o tipo</option>
-          <option>2D</option>
-          <option>3D</option>
-          <option>IMAX</option>
-        </select>
-      </div>
-
-      <!--Botão salvar-->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary w-50">Salvar Sala</button>
-      </div>
-
-    </form>
-
-  </div>
-
-    <script src="./js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./controller/salasController.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

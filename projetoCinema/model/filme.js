@@ -1,7 +1,8 @@
 export class Filme {
-    constructor(id, titulo, genero, classificacao, duracao, estreia) {
+    constructor(id, titulo, descricao, genero, classificacao, duracao, estreia) {
         this.id = id;;
         this.titulo = titulo;
+        this.descricao = descricao;
         this.genero = genero;
         this.classificacao = classificacao;
         this.duracao = duracao;

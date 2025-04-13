@@ -5,37 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Document</title>
 </head>
 
-<body>
-  <div class="container-fluid bg-dark">
-    <ul class="nav nav-underline justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./home.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white active" href="./cadastro-filmes.html">Cadastro de Filmes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-salas.html">Cadastro de Salas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./venda-ingressos.html">Venda de Ingressos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./sessoes.html">Listagem de Sessões Disponíveis</a>
-      </li>
-      <li class="nav-item">
-        <a href="./home.html">
-          <img src="./assets/logoCinemaBranco.png" alt="logoCinema" width="40">
-        </a>
-      </li>
-    </ul>
-  </div>
+<body class="bg-black text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="./home.html">
+        <img src="./assets/cineBraga.png" alt="CineBraga" class="logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./cadastro-filmes.html">Cadastro de Filmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-salas.html">Cadastro de Salas</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-sessoes.html">Cadastro de Sessões</a></li>
+          <li class="nav-item"><a class="nav-link" href="./venda-ingressos.html">Venda de Ingressos</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sessoes.html">Sessões Disponíveis</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
     <br>
@@ -50,15 +45,6 @@
     </div>
     <!-- fim row -->
     <br>
-    <div class="row">
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Digite o título do filme">
-          <button type="button" class="btn btn-primary">Buscar</button>
-        </div>
-      </div>
-    </div>
-    <!-- fim row -->
     <hr>
     <div class="row">
       <div class="col-12">
@@ -92,7 +78,7 @@
     </div>
     <!-- fim row -->
 
-    <!-- Modal: Cadastro de Novo Filme ou Editar Filme Existente -->
+    <!-- Modal: Cadastro de Novo Filme -->
     <div class="modal fade" id="idModalFilme" tabindex="-1" aria-labelledby="idModalFilmeTitulo" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -155,7 +141,8 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+              id="btnCancelarNovoFilme">Cancelar</button>
             <button type="submit" class="btn btn-success" id="btnSalvarFilme">Salvar</button>
           </div>
           </form>
@@ -163,7 +150,99 @@
       </div>
     </div>
 
+    <!-- Modal: Edição de filme -->
+    <div class="modal fade" id="idModalEdicaoFilme" tabindex="-1" aria-labelledby="idModalFilmeEdicao"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-dark">
+            <h5 class="modal-title" id="idModalFilmeEdicao">Editar Filme</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formFilme">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Título do Filme</label>
+                <input type="text" class="form-control" id="titulo-filme-edicao" placeholder="Digite o título do filme"
+                  required>
+              </div>
 
+              <!-- Descrição -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Descrição</label>
+                <textarea class="form-control" id="descricao-filme-edicao" rows="3"
+                  placeholder="Digite a sinopse do filme" required></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Gênero</label>
+                <select class="form-select" id="genero-filme-edicao" required>
+                  <option value="" selected disabled>Selecione o gênero</option>
+                  <option>Ação</option>
+                  <option>Comédia</option>
+                  <option>Drama</option>
+                  <option>Ficção Científica</option>
+                  <option>Romance</option>
+                  <option>Terror</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Classificação Indicativa</label>
+                <select class="form-select" id="classificacao-filme-edicao" required>
+                  <option value="" selected disabled>Selecione a classificação</option>
+                  <option>Livre</option>
+                  <option>10 anos</option>
+                  <option>12 anos</option>
+                  <option>14 anos</option>
+                  <option>16 anos</option>
+                  <option>18 anos</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Duração (minutos)</label>
+                <input type="number" class="form-control" id="duracao-filme-edicao"
+                  placeholder="Digite a duração do filme" min="1" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Data de Estreia</label>
+                <input type="date" class="form-control" id="estreia-filme-edicao" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success" id="btnSalvarEdicaoFilme">Salvar</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Excluir Filme -->
+    <div class="modal fade" id="modalExcluirFilme" tabindex="-1" aria-labelledby="modalExcluirFilme" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark">
+            <img src="./img/aviso.png" alt="" class="img-fluid">
+            &nbsp;&nbsp;&nbsp;
+            <h4 class="modal-title text-white"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;Alerta</h4>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <h5>Deseja realmente excluir o filme?</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="btnExcluirFilme" data-bs-dismiss="modal">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 

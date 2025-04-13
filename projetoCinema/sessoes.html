@@ -4,37 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
-<body>
-  <div class="container-fluid bg-dark">
-    <ul class="nav nav-underline justify-content-center bg-dark">
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./home.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-filmes.html">Cadastro de Filmes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-salas.html">Cadastro de Salas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./cadastro-sessoes.html">Cadastro de Sessões</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-semibold" href="./venda-ingressos.html">Venda de Ingressos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white active" href="./sessoes.html">Listagem de Sessões Disponíveis</a>
-      </li>
-      <li class="nav-item">
-        <a href="./home.html">
-          <img src="./assets/logoCinemaBranco.png" alt="logoCinema" width="40">
-        </a>
-      </li>
-    </ul>
-
-  </div>
+<body class="bg-black text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="./home.html">
+        <img src="./assets/cineBraga.png" alt="CineBraga" class="logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-filmes.html">Cadastro de Filmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-salas.html">Cadastro de Salas</a></li>
+          <li class="nav-item"><a class="nav-link" href="./cadastro-sessoes.html">Cadastro de Sessões</a></li>
+          <li class="nav-item"><a class="nav-link" href="./venda-ingressos.html">Venda de Ingressos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./sessoes.html">Sessões Disponíveis</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div class="container mt-5">
     <h2 class="text-center">Listagem de Sessões Disponíveis 🎬</h2>
