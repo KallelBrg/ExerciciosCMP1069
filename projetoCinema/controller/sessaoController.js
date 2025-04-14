@@ -9,10 +9,11 @@ class SessaoController {
     }
 
     init() {
-        this.carregarFilmes();
-        this.carregarSalas();
         const btnSalvarSessao = document.getElementById('formSessao');
         const btnCancelar = document.getElementById('btnCancelarSessao');
+
+        this.carregarFilmes();
+        this.carregarSalas();
 
         btnSalvarSessao.addEventListener('submit', this.salvarSessao.bind(this));
 
@@ -144,7 +145,7 @@ class SessaoController {
     abrirModalEdicao(sessao) {
         const modal = new bootstrap.Modal(document.getElementById("idModalEdicaoSessao"));
         modal.show();
-    
+
         const selectFilmeEdicao = document.getElementById("filme-edicao");
         selectFilmeEdicao.innerHTML = ""; // Limpa o select
         const filmes = JSON.parse(localStorage.getItem("filmes")) || [];
@@ -154,7 +155,7 @@ class SessaoController {
             option.textContent = filme.titulo;
             selectFilmeEdicao.appendChild(option);
         });
-    
+
         const selectSalaEdicao = document.getElementById("sala-edicao");
         selectSalaEdicao.innerHTML = "";
         const salas = JSON.parse(localStorage.getItem("salas")) || [];
@@ -164,7 +165,7 @@ class SessaoController {
             option.textContent = `${sala.nomeSala} - ${sala.tipo}`;
             selectSalaEdicao.appendChild(option);
         });
-        
+
         document.getElementById('nomeSessao-edicao').value = sessao.nomeSessao;
         selectFilmeEdicao.value = sessao.filmeId;
         selectSalaEdicao.value = sessao.salaId;
@@ -172,7 +173,7 @@ class SessaoController {
         document.getElementById("preco-edicao").value = sessao.preco;
         document.getElementById("idioma-edicao").value = sessao.idioma;
         document.getElementById("formato-edicao").value = sessao.formato;
-    
+
         const btnSalvar = document.getElementById('btnSalvarEdicaoSessao');
 
         btnSalvar.addEventListener('click', () => {
@@ -187,13 +188,13 @@ class SessaoController {
                     sessaoSearch.formato = document.getElementById("formato-edicao").value;
                 }
             });
-    
+
             this.salvarNoLocalStorage();
             this.atualizarTabela();
             modal.hide();
         });
     }
-    
+
 
     excluir(id) {
         const btnExcluirSala = document.getElementById('btnExcluirSessao');

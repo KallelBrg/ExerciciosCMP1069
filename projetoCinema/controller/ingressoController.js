@@ -9,7 +9,10 @@ class IngressoController {
 
 
     init() {
+        this.selecionarSessaoViaURL();
         this.carregarSessoes();
+
+
         const btnComprarIngresso = document.getElementById('btnComprarIngresso');
 
         btnComprarIngresso.addEventListener('click', this.comprarIngresso.bind(this));
@@ -39,6 +42,24 @@ class IngressoController {
     salvarNoLocalStorage() {
         localStorage.setItem("ingressos", JSON.stringify(this.listaIngressos));
     }
+
+    selecionarSessaoViaURL() {
+        const params = new URLSearchParams(window.location.search);
+        const nomeSessaoUrl = params.get("nomeSessao");
+    
+        if (nomeSessaoUrl) {
+            // Aguarda um pequeno tempo para garantir que as opções já estão no select
+            setTimeout(() => {
+                for (const option of this.selectSessao.options) {
+                    if (option.textContent === nomeSessaoUrl) {
+                        this.selectSessao.value = option.value;
+                        break;
+                    }
+                }
+            }, 100); // tempo curto, só pra garantir
+        }
+    }
+    
 
     carregarSessoes() {
         const sessoes = JSON.parse(localStorage.getItem("sessoes")) || [];
