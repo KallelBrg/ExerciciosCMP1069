@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro e Listagem de Funcionários</h1>
+    <hr>
+
+    <div>
+        <p>
+            <strong>Nome </strong><input type="text" id="nome" placeholder="Insira seu nome">
+        </p>
+        <p>
+            <strong>Idade </strong><input type="number" id="idade" placeholder="Insira sua idade">
+        </p>
+        <p>
+            <strong>Cargo </strong><input type="text" id="cargo" placeholder="Insira o seu cargo">
+        </p>
+        <p>
+            <strong>Salário </strong><input type="number" id="salario" placeholder="R$ 0,00">
+        </p>
+        <button onclick="cadastrarFuncionario()"> Cadastrar </button>
+    </div>
+
+    <br>
+
+    <h2>Tabela de Funcionários</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+            </tr>
+        </thead>
+        <tbody id="corpoTabela">
+
+        </tbody>
+    </table>
+    
+    <script src="./main.js"></script>
+</body>
+</html>

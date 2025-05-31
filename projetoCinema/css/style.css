@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.title_carrossel {
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.carousel-item img {
+    filter: brightness(0.5);
+    height: 450px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    z-index: 10;
+}
+
+.modal label {
+    color: black;
+}
+
+#modalExcluirFilme .modal-body, 
+#modalExcluirFilme .modal-body h5 {
+  color: black;
+}

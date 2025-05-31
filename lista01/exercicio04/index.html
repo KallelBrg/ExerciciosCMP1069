@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Cadastro de Alunos</h1>
+    <hr>
+    <div class="formulario">
+        <p>
+            Nome <input type="text" id="nome" placeholder="Digite seu nome">
+        </p>
+        <p>
+           Idade <input type="number" id="idade" placeholder="Digite sua idade">
+        </p>
+        <p>
+            Curso <select name="curso" id="opCurso">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+            </select>
+        </p>
+        <p>
+            Nota Final <input type="text" id="notaFinal" placeholder="Digite a nota final">
+        </p>
+        <button id="buttonCadastrar">Cadastrar</button>
+    </div>
+
+    <h2>Lista de Alunos</h2>
+    <p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Curso</th>
+                    <th>Nota Final</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela">
+                
+            </tbody>
+        </table>
+    </p>
+
+    <h2>Relatórios</h2>
+    <button id="buttonRelatorios">Gerar Relatórios</button>
+    <ul>
+        <li><strong>Alunos Aprovados: </strong><span id="relatorioAprovados"></span></li>
+        <li><strong>Média das Notas: </strong><span id="mediaNotas"></span></li>
+        <li><strong>Média das Idades: </strong><span id="mediaIdades"></span></li>
+        <li><strong>Nomes em ordem Alfabética: </strong><span id="nomesOrdenados"></span></li>
+        <li><strong>Quantidade de Alunos por curso: <br></strong><span id="quantidadeCursos"></span></li>
+    </ul>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
