@@ -1,90 +1,100 @@
+import { useEffect, useState } from "react";
 import FilmeForm from "./components/FilmeForm";
 import Button from "../../components/buttons/Button";
 import { Modal } from "../../components/modal/Modal";
+import { listarFilmes, excluirFilme, atualizarFilme, getFilmeEditar, addFilme } from "./services/filmeService";
 import { FilmeTable } from "./components/FilmeTable";
-import { useEffect, useState } from "react";
-import { adicionarFilme, alterarFilmeEditado, excluirFilmeServices, getFilmeEditar } from "./services/storage";
 
 export function CadastrarFilme() {
-    const [filmesTabela, setFilmesTabela] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-    const [isEditOpen, setIsEditOpen] = useState(false);
-    const [filmeEditando, setFilmeEditando] = useState(null);
-    const [indexEditado, setIndexEditado] = useState(null);
+  const [filmesTabela, setFilmesTabela] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [filmeEditando, setFilmeEditando] = useState(null);
+  const [indexEditado, setIndexEditado] = useState(null);
 
-    function abrirModal() {
-        setIsOpen(true);
-    }
+  // Função para listar filmes
+  const listar = async () => {
+    const filmes = await listarFilmes();
+    setFilmesTabela(filmes);
+  };
 
-    function fecharModal() {
-        setIsOpen(false);
-    }
+  async function handleSubmit(filme) {
+    await (addFilme(filme));
+    listar();
+    fecharModal();
+  }
 
-    function abrirEditModal() {
-        setIsEditOpen(true);
-    }
+  async function handleSubmitEditar(filme) {
+    await (atualizarFilme(indexEditado, filme));
+    listar();
+    fecharEditModal();
+  }
 
-    function fecharEditModal() {
-        setIsEditOpen(false);
-    }
+  // Função para excluir filme
+  const excluir = async (id) => {
+    await excluirFilme(id);
+    listar(); // Atualiza a lista após a exclusão
+  };
 
-    function handleSubmit(filme) {
-        setFilmesTabela(adicionarFilme(filme));
-        fecharModal();
-    }
+  useEffect(() => {
+    listar(); // Carrega a lista de filmes ao inicializar
+  }, []);
 
-    function handleSubmitEditar(filme) {
-        setFilmesTabela(alterarFilmeEditado(filme, indexEditado));
-        fecharEditModal();
-    }
+  // Função para abrir o modal de cadastro
+  function abrirModal() {
+    setIsOpen(true);
+  }
 
-    function excluirFilme(index) {
-        setFilmesTabela(excluirFilmeServices(index));
-    }
+  // Função para fechar o modal de cadastro
+  function fecharModal() {
+    setIsOpen(false);
+  }
 
-    function editarFilme(index) {
-        setFilmeEditando(getFilmeEditar(index));
-        setIndexEditado(index);
-        abrirEditModal();
-    }
+  // Função para abrir o modal de edição
+  function abrirEditModal() {
+    setIsEditOpen(true);
+  }
 
-    useEffect(() => {
-        setFilmesTabela(JSON.parse(localStorage.getItem("filmes")) || []);
-    }, []);
+  // Função para fechar o modal de edição
+  function fecharEditModal() {
+    setIsEditOpen(false);
+  }
 
-    return (
-        <div className="container py-5">
-            <h2 className="text-white mb-3 fonte-principal">Cadastrar Filme</h2>
+  async function editarFilme(index) {
+    await setFilmeEditando(getFilmeEditar(index));
+    setIndexEditado(index);
+    abrirEditModal();
+  }
 
-            <Button
-                variant="btn btn-primary mb-4"
-                texto="Cadastrar Filme"
-                onClick={abrirModal}
-            />
+  return (
+    <div className="container py-5">
+      <h2 className="text-white mb-3 fonte-principal">Cadastrar Filme</h2>
 
-            {isOpen && (
-                <Modal
-                    titulo="Cadastrar Novo Filme"
-                    body={<FilmeForm onSubmit={handleSubmit} />}
-                    fecharModal={fecharModal}
-                    form="filme-form"
-                />
-            )}
+      <Button variant="btn btn-primary mb-4" texto="Cadastrar Filme" onClick={abrirModal} />
 
-            {isEditOpen && (
-                <Modal
-                    titulo="Editar Filme"
-                    body={<FilmeForm onSubmit={handleSubmitEditar} onEditar={filmeEditando} />}
-                    fecharModal={fecharEditModal}
-                    form="filme-form"
-                />
-            )}
+      {isOpen && (
+        <Modal
+          titulo="Cadastrar Novo Filme"
+          body={<FilmeForm onSubmit={handleSubmit} />}
+          fecharModal={fecharModal}
+          form="filme-form"
+        />
+      )}
 
-            <FilmeTable
-                listaFilmes={filmesTabela}
-                botaoExcluir={excluirFilme}
-                botaoEditar={editarFilme}
-            />
-        </div>
-    );
+      {isEditOpen && (
+        <Modal
+          titulo="Editar Filme"
+          body={<FilmeForm onSubmit={handleSubmitEditar} onEditar={filmeEditando} />}
+          fecharModal={fecharEditModal}
+          form="filme-form"
+        />
+      )}
+
+      <FilmeTable
+        listaFilmes={filmesTabela}
+        botaoExcluir={excluir}
+        botaoEditar={editarFilme}
+      />
+    </div>
+  );
 }

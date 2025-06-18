@@ -19,17 +19,17 @@ export function SalaTable({
                 </thead>
                 <tbody>
                     {listaSalas.map((sala, i) => {
-                        const { nomeSala, capacidadeSala, tipoSala } = sala;
+                        const { id, nomeSala, capacidadeSala, tipoSala } = sala;
                         return (
                             <tr key={i}>
-                                <td>{i + 1}</td>
+                                <td>{id}</td>
                                 <td>{nomeSala}</td>
                                 <td>{capacidadeSala}</td>
                                 <td>{tipoSala}</td>
                                 <td>
                                     <div className="d-flex gap-2">
-                                        <Button variant="btn btn-sm btn-secondary" texto="Editar" onClick={() => botaoEditar(i)} />
-                                        <Button variant="btn btn-sm btn-danger" texto="Excluir" onClick={() => botaoExcluir(i)} />
+                                        <Button variant="btn btn-sm btn-secondary" texto="Editar" onClick={() => botaoEditar(id)} />
+                                        <Button variant="btn btn-sm btn-danger" texto="Excluir" onClick={() => botaoExcluir(id)} />
                                     </div>
                                 </td>
                             </tr>

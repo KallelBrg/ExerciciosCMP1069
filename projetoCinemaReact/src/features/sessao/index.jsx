@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { SessaoForm } from "./components/SessaoForm";
 import { SessaoTable } from "./components/SessaoTable";
 import {
-    adicionarSessao,
-    excluirSessoesServices,
-    getSessaoEditar,
-    alterarSessaoEditado
+    listarSessoes,
+    excluirSessao,
+    adicionarSessao
+
 } from "./services/storage";
 
 export function CadastarSessao() {
@@ -16,6 +16,11 @@ export function CadastarSessao() {
     const [sessoesTabela, setSessoesTabela] = useState([]);
     const [sessaoEditando, setSessaoEditando] = useState(null);
     const [indexEditado, setIndexEditado] = useState(null);
+
+    const listar = async () => {
+        const sessoes = await listarSessoes();
+        setSessoesTabela(sessoes);
+    };
 
     function abrirModal() {
         setIsOpen(true);
@@ -33,19 +38,21 @@ export function CadastarSessao() {
         setIsEditOpen(false);
     }
 
-    function handleSubmit(sessao) {
-        setSessoesTabela(adicionarSessao(sessao));
+    async function handleSubmit(sessao) {
+        await (adicionarSessao(sessao));
+        listar();
         fecharModal();
     }
 
-    function handleEditSubmit(sessao) {
+    /* function handleEditSubmit(sessao) {
         setSessoesTabela(alterarSessaoEditado(sessao, indexEditado));
         fecharEditModal();
-    }
+    } */
 
-    function excluirSessao(index) {
-        setSessoesTabela(excluirSessoesServices(index));
-    }
+    const excluir = async (id) => {
+        await excluirSessao(id);
+        listar(); // Atualiza a lista após a exclusão
+    };
 
     function editarSessao(index) {
         setSessaoEditando(getSessaoEditar(index));
@@ -54,7 +61,7 @@ export function CadastarSessao() {
     }
 
     useEffect(() => {
-        setSessoesTabela(JSON.parse(localStorage.getItem("sessoes")) || []);
+        listar();
     }, []);
 
     return (
@@ -87,7 +94,7 @@ export function CadastarSessao() {
 
             <SessaoTable
                 listaSessoes={sessoesTabela}
-                botaoExcluir={excluirSessao}
+                botaoExcluir={excluir}
                 botaoEditar={editarSessao}
             />
         </div>

@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import { getFilmes } from "../filme/services/storage";
+import { getFilmes } from "../filme/services/filmeService";  // Certifique-se de que o caminho está correto
 
 export function Home() {
     const [filmes, setFilmes] = useState([]);
 
     useEffect(() => {
-        setFilmes(getFilmes());
+        async function fetchFilmes() {
+            const filmesData = await getFilmes();  // Chamando o serviço
+            setFilmes(filmesData);
+        }
+        fetchFilmes();
     }, []);
 
     return (

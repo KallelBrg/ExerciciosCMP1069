@@ -22,20 +22,20 @@ export function SessaoTable({
                 </thead>
                 <tbody>
                     {listaSessoes.map((sessao, i) => {
-                        const { filme, sala, tipoSala, dataHoraSessao, precoSessao, idioma } = sessao;
+                        const { id, filme, sala, tipoSala, dataHora, preco, idioma } = sessao;
                         return (
                             <tr key={i}>
-                                <td>{i + 1}</td>
+                                <td>{id}</td>
                                 <td>{filme}</td>
                                 <td>{sala}</td>
                                 <td>{tipoSala}</td>
-                                <td>{dataHoraSessao}</td>
-                                <td>{precoSessao}</td>
+                                <td>{dataHora}</td>
+                                <td>{preco}</td>
                                 <td>{idioma}</td>
                                 <td>
                                     <div className="d-flex gap-2">
-                                        <Button variant="btn btn-sm btn-secondary" texto="Editar" onClick={() => botaoEditar(i)} />
-                                        <Button variant="btn btn-sm btn-danger" texto="Excluir" onClick={() => botaoExcluir(i)} />
+                                        <Button variant="btn btn-sm btn-secondary" texto="Editar" onClick={() => botaoEditar(id)} />
+                                        <Button variant="btn btn-sm btn-danger" texto="Excluir" onClick={() => botaoExcluir(id)} />
                                     </div>
                                 </td>
                             </tr>

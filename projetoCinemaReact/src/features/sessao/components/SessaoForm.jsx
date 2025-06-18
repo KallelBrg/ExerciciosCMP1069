@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Input from "../../../components/input/Input";
 import { Select } from "../../../components/select/Select";
-import { getNomeFilmes } from "../../filme/services/storage";
+import { getNomeFilmes } from "../../filme/services/filmeService";
 import { getNomeSalas, getTipoSalaServices } from "../../sala/services/storage";
 
 export function SessaoForm({ onSubmit, onEditar }) {
